@@ -441,31 +441,26 @@ Emacs 将每个终端表示为终端对象数据类型（请参阅终端类型�
 
     按照惯例，左侧和顶部返回值处的显示像素被认为是在帧内（部分）。因此，如果 left 和 top 都为零，则显示原点的像素是帧的一部分。另一方面，底部和右侧的像素被认为位于帧外。这意味着，例如，如果您有两个并排的帧，使左侧帧的右外边缘等于右侧帧的左外边缘，则该边缘的像素显示一部分右边的帧。
 
-*** 30.3.2 帧字体
-每个帧都有一个默认字体，它指定该帧的默认字符大小。此大小是指在检索或更改以列或行为单位的帧大小时（请参阅大小参数）。它也用于调整窗口大小（请参阅窗口大小）或拆分（请参阅拆分窗口）窗口。
+*** 30.3.2 帧的字体
 
-有时使用术语行高和规范字符高度来代替 ~默认字符高度~ 。同样，使用术语列宽和规范字符宽度代替 ~默认字符宽度~ 。
+每个帧都有一个默认字体，它指定该帧的默认字符大小。此大小可供以列或行为单位来检索或更改窗口大小（请参阅[[https://github.com/advanceflow/Elisp/blob/main/30-帧.org#30433-尺寸参数][尺寸参数]]）。它也被用于调整窗口大小（请参阅[[https://github.com/advanceflow/Elisp/blob/main/29-窗口.org#294-窗口大小][窗口大小]]）或拆分（请参阅[[https://github.com/advanceflow/Elisp/blob/main/29-窗口.org#297-分割窗口][分割窗口]]）窗口。
 
-#+begin_src emacs-lisp
-  Function: frame-char-height &optional frame ¶
-#+end_src
-#+begin_src emacs-lisp
-  Function: frame-char-width &optional frame ¶
-#+end_src
+有时，术语“行高”（ /line height/ ）和“规范字符高度”（ /canonical character height/ ）也被用于称呼“默认字符高度”。同样，术语“列宽”（ /column width/ ）和“规范字符宽度”（ /canonical character width/ ）也被用于称呼“默认字符宽度”。
 
-    这些函数返回帧中字符的默认高度和宽度，以像素为单位。这些值一起确定了帧上默认字体的大小。这些值取决于帧字体的选择，请参阅字体和颜色参数。
+- *Function: frame-char-height &optional frame* ::
+- *Function: frame-char-width &optional frame* ::
 
-也可以直接使用以下函数设置默认字体：
+  这些函数返回帧中字符的默认高度和宽度，以像素为单位。它们一起确定了帧默认字体的大小。它们的值取决于所选的帧的字体，详细请参阅[[https://github.com/advanceflow/Elisp/blob/main/30-帧.org#304310-字体和颜色参数][字体和颜色参数]]。
 
-#+begin_src emacs-lisp
-  Command: set-frame-font font &optional keep-size frames ¶
-#+end_src
+帧的默认字体也可以直接用以下函数设置：
 
-    这会将默认字体设置为字体。当以交互方式调用时，它会提示输入字体的名称，并在所选帧上使用该字体。从 Lisp 调用时，字体应该是字体名称（字符串）、字体对象、字体实体或字体规范。
+- Command: set-frame-font font &optional keep-size frames ::
+  
+  该命令将默认字体设置为 /font/ 。当以交互方式调用时，它会提示输入字体的名称，并在当前选中的帧上使用该字体。从 Lisp 调用时，参数 /font/ 应为字体名称（ =font-name= 字符串）、字体对象（ =font-object= ）、字体实体（ =font-entity= ）或字体规范（ =font-spec= ）之一。
 
-    如果可选参数 keep-size 为 nil，这将保持帧行数和列数固定。（如果非零，下一节中描述的选项 frame-inhibit-implied-resize 将覆盖它。）如果 keep-size 非零（或带有前缀参数），它会尝试保持显示的大小通过调整行数和列数来固定当前帧的区域。
+  如果可选参数 /keep-size/ 为 =nil= ，帧的行数和列数将保持固定。（如果其值非 =nil= ，下一节中描述的选项 =frame-inhibit-implied-resize= 将覆盖它。）如果 /keep-size/ 非 =nil= （或在交互式调用中使用了前缀参数），则帧内的行数和列数将会进行调整，以使显示区域的大小保持固定。
 
-    如果可选参数 frames 为 nil，则仅将字体应用于选定的帧。如果 frames 不为零，则它应该是要作用的帧列表，或者 t 表示所有现有和所有未来的图形帧。
+  如果可选参数 /frames/ 的值为 nil，则仅将字体应用于当前选中的帧。如果 /frames/ 的值非 =nil= ，则它的值应为一个要应用该字体的帧的列表，或者为 =t= 以表示应用于所有现有的和未来的（图形化的）帧。
 
 *** 30.3.3 帧位置
 在图形系统上，普通顶层帧的位置被指定为其外帧的绝对位置（参见帧几何）。子帧的位置（参见子帧）是通过其外边缘相对于其父帧的原始位置的像素偏移量来指定的。

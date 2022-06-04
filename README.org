@@ -3,36 +3,38 @@
 
 * 术语对照
   针对不合适的术语表述，欢迎提交修正。
-| Face         | 面       |
-| Eval         | 评估     |
-| Kill Ring    | 环       |
-| Numbers                            | 数字                 |
-| Lists                              | 列表                 |
-| Sequences, Arrays, and Vectors     | 序列、数组和向量     |
-| Records                            | 记录                 |
-| Hash Tables                        | 哈希表               |
-| Symbols                            | 符号                 |
-| Control Structures                 | 控制结构             |
-| Variables                          | 变量                 |
-| Functions                          | 函数                 |
-| Macros                             | 宏                   |
-| Loading                            | 加载                 |
-| Byte Compilation                   | 字节编译             |
-| Minibuffers                        | 小缓冲区             |
-| Command Loop                       | 命令循环             |
-| Keymaps                            | 键映射               |
-| Major and Minor Modes              | 主要和次要模式       |
-| Documentation                      | 文档                 |
-| Files                              | 文件                 |
-| Buffers                            | 缓冲区            |
-| Windows                            | 窗口                 |
-| Frames                             | 帧                   |
-| Positions                          | 位置                 |
-| Markers                            | 标记                 |
-| Text                               | 文本                 |
-| Non-ASCII Characters               | 非ASCII字符          |
-| Syntax Tables                      | 语法表               |
-| Threads                            | 线程                 |
+| Face                           | 面               |
+| Eval                           | 评估             |
+| Kill Ring                      | 环               |
+| Numbers                        | 数字             |
+| Lists                          | 列表             |
+| Sequences, Arrays, and Vectors | 序列、数组和向量 |
+| Records                        | 记录             |
+| Hash Tables                    | 哈希表           |
+| Symbols                        | 符号             |
+| Control Structures             | 控制结构         |
+| Variables                      | 变量             |
+| Functions                      | 函数             |
+| Macros                         | 宏               |
+| Loading                        | 加载             |
+| Byte Compilation               | 字节编译         |
+| Minibuffers                    | 小缓冲区         |
+| Command Loop                   | 命令循环         |
+| Keymaps                        | 键映射           |
+| Major and Minor Modes          | 主要和次要模式   |
+| Documentation                  | 文档             |
+| Files                          | 文件             |
+| Buffers                        | 缓冲区           |
+| Windows                        | 窗口             |
+| Frames                         | 帧               |
+| Positions                      | 位置             |
+| Markers                        | 标记             |
+| Text                           | 文本             |
+| Non-ASCII Characters           | 非ASCII字符      |
+| Syntax Tables                  | 语法表           |
+| Threads                        | 线程             |
+| Fringe                         | 边缘             |
+| Margin                         | 边距             |
 
 * 翻译进度
 1. 第一阶段S1： 机器翻译全部内容。
